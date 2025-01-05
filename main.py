@@ -73,16 +73,18 @@ else:
     logging.info(f'Created new playlist: {playlist["name"]} with ID: {playlist_id}')
 
 # Search for tracks and add them to the playlist
+tracks_added = 0
 for track in tracks:
     query = f"{track['title']} {track['artist']}"
     result = sp.search(query, type='track', limit=1)
     if result['tracks']['items']:
         track_id = result['tracks']['items'][0]['id']
         sp.playlist_add_items(playlist_id, [track_id])
-        logging.info(f'Added track: {track["title"]} by {track["artist"]}')
+        tracks_added += 1
+        # logging.info(f'Added track: {track["title"]} by {track["artist"]}')
     else:
         logging.warning(f'Track not found: {track["title"]} by {track["artist"]}')
 
-logging.info(f'Tracks added to playlist: {playlist["external_urls"]["spotify"]}')
+logging.info(f'Added {tracks_added} tracks to playlist: {playlist["external_urls"]["spotify"]}')
 
 
