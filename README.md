@@ -57,7 +57,7 @@ This project uses an html file saved from AllMusic containing the top songs for 
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
+This project is licensed under the Apache-2.0 license. See the `LICENSE` file for details.
 
 ## Contributing
 
