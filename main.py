@@ -41,12 +41,26 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     scope='playlist-modify-public'
 ))
 
-# Create a new playlist
+# Check if playlist already exists
 user_id = sp.current_user()['id']
-playlist = sp.user_playlist_create(user_id, f'{style} Playlist', public=True)
-playlist_id = playlist['id']
+playlists = sp.user_playlists(user_id)
+playlist_id = None
 
-logging.info(f'Created playlist: {playlist["name"]} with ID: {playlist_id}')
+for playlist in playlists['items']:
+    if playlist['name'] == f'{style} Allmusic':
+        playlist_id = playlist['id']
+        logging.info(f'Found existing playlist: {playlist["name"]} with ID: {playlist_id}')
+        break
+
+if playlist_id:
+    # Clear existing playlist
+    sp.playlist_replace_items(playlist_id, [])
+    logging.info(f'Cleared existing playlist: {playlist["name"]}')
+else:
+    # Create a new playlist
+    playlist = sp.user_playlist_create(user_id, f'{style} Allmusic', public=True)
+    playlist_id = playlist['id']
+    logging.info(f'Created new playlist: {playlist["name"]} with ID: {playlist_id}')
 
 # Search for tracks and add them to the playlist
 for track in tracks:
