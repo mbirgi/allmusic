@@ -81,10 +81,9 @@ for track in tracks:
         track_id = result['tracks']['items'][0]['id']
         sp.playlist_add_items(playlist_id, [track_id])
         tracks_added += 1
-        # logging.info(f'Added track: {track["title"]} by {track["artist"]}')
     else:
         logging.warning(f'Track not found: {track["title"]} by {track["artist"]}')
 
 logging.info(f'Added {tracks_added} tracks to playlist: {playlist["external_urls"]["spotify"]}')
-
+logging.info('**** Done ****')
 
