@@ -1,10 +1,10 @@
 # allmusic
 
-This project scrapes song data from AllMusic and creates a Spotify playlist with the scraped tracks.
+This project uses an html file saved from AllMusic containing the top songs for a genre and creates a Spotify playlist with the tracks.
 
 ## Features
 
-- Scrapes song data from AllMusic
+- Reads song data from an html file
 - Searches for tracks on Spotify
 - Creates a Spotify playlist and adds the tracks
 
@@ -39,23 +39,25 @@ This project scrapes song data from AllMusic and creates a Spotify playlist with
 
 ## Usage
 
-1. Update the `style` variable in [main.py](http://_vscodecontentref_/2) to the desired music style:
+1. Save the page with the desired genres top songs (e.g. https://www.allmusic.com/style/clubjazz-ma0000011890/songs) to the data directory in the format `{style} Music Songs _ AllMusic.html`
+
+2. Update the `style` variable in [main.py](http://_vscodecontentref_/2) to the desired music style:
 
     ```python
     style = 'Clubjazz'  # Change to your desired music style
     ```
 
-2. Run the script:
+3. Run the script:
 
     ```sh
     python main.py
     ```
 
-3. The script will scrape song data from AllMusic, search for the tracks on Spotify, and create a new playlist with the tracks.
+4. The script will read the song data from the saved file, search for the tracks on Spotify, and create a new playlist with the tracks.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](http://_vscodecontentref_/3) file for details.
+This project is licensed under the Apache License 2.0. See the [LICENSE](http://_vscodecontentref_/3) file for details.
 
 ## Contributing
 
