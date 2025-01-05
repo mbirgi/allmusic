@@ -9,8 +9,18 @@ import logging
 # Load environment variables from .env file
 load_dotenv()
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Ensure the logs directory exists
+os.makedirs('logs', exist_ok=True)
+
+# Set up logging to a file
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('logs/app.log'),
+        logging.StreamHandler()
+    ]
+)
 
 pp = pprint.PrettyPrinter(indent=4)
 
