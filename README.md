@@ -29,7 +29,7 @@ This project uses an html file saved from AllMusic containing the top songs for 
     pip install -r requirements.txt
     ```
 
-3. Create a [.env] file in the project directory and add your Spotify credentials:
+3. Create a `.env` file in the project directory and add your Spotify credentials:
 
     ```env
     SPOTIPY_CLIENT_ID=your_spotify_client_id
@@ -41,7 +41,7 @@ This project uses an html file saved from AllMusic containing the top songs for 
 
 1. Save the page with the desired genres top songs (e.g. https://www.allmusic.com/style/clubjazz-ma0000011890/songs) to the data directory in the format `{style} Music Songs _ AllMusic.html`
 
-2. Update the `style` variable in [main.py] to the desired music style:
+2. Update the `style` variable in `main.py` to the desired music style:
 
     ```python
     style = 'Clubjazz'  # Change to your desired music style
@@ -57,7 +57,7 @@ This project uses an html file saved from AllMusic containing the top songs for 
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE] file for details.
+This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
 
 ## Contributing
 
